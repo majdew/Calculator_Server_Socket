@@ -32,13 +32,36 @@ public class Serversocket {
             System.out.println("There is a client!!! ");
 
             scanin = new Scanner(socket.getInputStream());
+            double result = 0.0;
+            int number1, number2;
+            String operation;
+            number1 = scanin.nextInt();
+            number2 = scanin.nextInt();
+            operation = scanin.next();
+            System.out.println("Client entered : \nfirst value : " + number1 + "\nsecond value :" + number2);
 
-            int clientResult , result;
-            clientResult= scanin.nextInt();
-            result = clientResult *10;
+            switch (operation) {
+                case "mult": {
+                    result = number1 * number2;
+                }
+                break;
+                case "div": {
+                    result = number1 / number2;
+                }
+                break;
+                case "sub": {
+                    result = number1 - number2;
+                }
+                break;
+                case "sum": {
+                    result = number1 + number2;
+                }
+                break;
+            }
+            System.out.println("send the result : " + result);
             printClient = new PrintStream(socket.getOutputStream());
             printClient.println(result);
-            
+
         } catch (IOException i) {
             System.out.println(i);
         }
