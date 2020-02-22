@@ -72,7 +72,7 @@ public class Server {
             }
 
         } catch (Exception ex) {
-            System.out.println("done");
+            System.out.println("connection closed ");
         } finally {
             s.close();
             ss.close();
